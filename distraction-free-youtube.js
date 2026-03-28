@@ -11,16 +11,16 @@
 (function () {
   "use strict";
 
-  document.querySelectorAll('ytd-browse[page-subtype="home"]').forEach((el) => {
-    el.style.display = "none";
-  });
-  document
-    .querySelectorAll(
-      "ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer",
-    )
-    .forEach((el) => {
-      el.style.display = "none";
-    });
+  const style = document.createElement("style");
+  style.textContent = `
+    /* hide homepage browse */
+    ytd-browse[page-subtype="home"] { display: none !important; }
+    /* hide watch next */
+    .ytd-watch-next-secondary-results-renderer { display: none !important; }
+    /* hide suggestions at the end of the video */
+    .ytp-suggestion-set { display: none !important; }
+  `;
+  document.documentElement.appendChild(style);
 
   function redirectShorts() {
     if (location.pathname.startsWith("/shorts/")) {
