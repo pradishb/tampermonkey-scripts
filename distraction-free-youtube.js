@@ -19,6 +19,8 @@
     .ytd-watch-next-secondary-results-renderer { display: none !important; }
     /* hide suggestions at the end of the video */
     .ytp-suggestion-set { display: none !important; }
+    /* hide cards at the end of the video */
+    .ytp-ce-element { display: none !important; }
   `;
   document.documentElement.appendChild(style);
 
